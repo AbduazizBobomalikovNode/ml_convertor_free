@@ -18,8 +18,8 @@ jobs:
     - name: Check if PYPI_API_TOKEN is set
       run: |
         if [ -z "${{ secrets.PYPI_API_TOKEN }}" ]; then
-          echo "${{ secrets.pypi.PYPI_API_TOKEN }}"
-          echo "${{ secrets.PYPI_API_TOKEN }}"
+          echo ${{ secrets.PYPI_API_TOKEN }}
+          echo ${{ secrets.pypi.PYPI_API_TOKEN }}
           exit 1
         else
           echo "PYPI_API_TOKEN is set."
