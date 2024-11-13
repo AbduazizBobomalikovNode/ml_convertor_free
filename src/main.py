@@ -1,5 +1,5 @@
 import argparse
-from convertor import convert_document
+from .convertor import convert_document
 
 def main():
     parser = argparse.ArgumentParser(description="Office faylini boshqa formatga o'tkazish")
