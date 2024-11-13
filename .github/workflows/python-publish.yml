@@ -21,6 +21,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Print part of PYPI_API_TOKEN
+      run: |
+        echo "PYPI_API_TOKEN starts with: ${${{ secrets.PYPI_API_TOKEN:0:4 }}****"
+
     - uses: actions/checkout@v4
     - name: Set up Python
       uses: actions/setup-python@v3
@@ -33,9 +37,6 @@ jobs:
         
     - name: Build package
       run: python -m build
-    - name: Print part of PYPI_API_TOKEN
-      run: |
-        echo "PYPI_API_TOKEN starts with: ${${{ secrets.PYPI_API_TOKEN:0:4 }}****"
 
     - name: Publish package
       uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
