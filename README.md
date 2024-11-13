@@ -21,7 +21,7 @@ Bu Python skripti ofis hujjatlarini (Excel, Word, PowerPoint) turli formatlarga 
 
 ## Misol ishlatish:
 ```bash
-python ml_converter xls2pdf input.xls output.pdf
+ml_converter xls2pdf input.xls output.pdf
 ```
 
 ## Log yozuvi:
@@ -51,7 +51,7 @@ This Python script provides a powerful solution for converting office documents 
 
 ## Example Usage:
 ```bash
-python ml_converter xls2pdf input.xls output.pdf
+ml_converter xls2pdf input.xls output.pdf
 ```
 
 ## Logging:
