@@ -56,3 +56,7 @@ python file_converter.py xls2pdf input.xls output.pdf
 
 ## Logging:
 All operations are logged into a `conversion_log.log` file for tracking and troubleshooting.
+
+
+
+## aloqa uchun
