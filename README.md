@@ -1,4 +1,5 @@
 
+# Bobomalikov Abduaziz
 # Office fayl konvertori
 
 Bu Python skripti ofis hujjatlarini (Excel, Word, PowerPoint) turli formatlarga o'zgartirish uchun kuchli yechim taqdim etadi. U PDF, HTML, XLSX, DOCX, PPTX va boshqa ko'plab formatlarni qo'llab-quvvatlaydi.
