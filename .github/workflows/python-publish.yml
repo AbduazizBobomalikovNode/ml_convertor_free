@@ -21,10 +21,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Print part of PYPI_API_TOKEN
+    - name: Check if PYPI_API_TOKEN is set
       run: |
-        echo "PYPI_API_TOKEN starts with: ${${{ secrets.PYPI_API_TOKEN:0:4 }}****"
-
+        if [ -z "${{ secrets.PYPI_API_TOKEN }}" ]; then
+          echo "PYPI_API_TOKEN is not set."
+          exit 1
+        else
+          echo "PYPI_API_TOKEN is set."
+        fi
     - uses: actions/checkout@v4
     - name: Set up Python
       uses: actions/setup-python@v3
