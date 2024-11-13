@@ -12,7 +12,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 class PostInstallCommand(install):
     def run(self):
         try:
-            from .checker import main_function as checker
+            from src.checker import main_function as checker
             checker()  # Bu yerda main_function()ni chaqirishingiz mumkin
         except Exception as e:
             # Barcha boshqa xatolarni ushlash uchun umumiy except
@@ -24,7 +24,7 @@ class PostInstallCommand(install):
 
 setup(
     name="ml_convertor_free",
-    version="0.1.11",
+    version="0.1.12",
     author="Bobomalikov Abduaziz",
     author_email="Abduaziz7071@gmail.com",
     description="MS Office va LibreOffice uchun konvertatsiya vositasi",

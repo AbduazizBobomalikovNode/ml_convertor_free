@@ -45,6 +45,31 @@ Format_dic_code = {
 # Logging sozlamalari
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s', filename="conversion_log.log")
 
+def convert_document(option_method, input_file, output_file):
+    if not os.path.exists(input_file):
+        logging.error(f"Xato: '{input_file}' fayli topilmadi.")
+        print(f"Xato: '{input_file}' fayli topilmadi.")
+        return
+
+    if option_method in Enable_methods:
+        from_, to_ = option_method.split("2")
+
+        if (from_ in ["xls", "xlsx"] and to_ in Format_dic["excel"]) or (from_ in ["doc", "docx"] and to_ in Format_dic["word"]) or (from_ in ["ppt", "pptx"] and to_ in Format_dic["powerPoint"]):
+            try:
+                convert_document_to_any(input_file, output_file, to_)
+                logging.info(f"Fayl '{input_file}' {to_} formatiga o'tkazildi: '{output_file}'")
+                print(f"Fayl '{input_file}' {to_} formatiga o'tkazildi: '{output_file}'")
+            except Exception as e:
+                logging.error(f"Xato yuz berdi: {e}")
+                print(f"Xato yuz berdi: {e}")
+        else:
+            logging.warning(f"Ushbu format uchun o'girish qo'llab-quvvatlanmaydi: {option_method}")
+            print(f"Ushbu format uchun o'girish qo'llab-quvvatlanmaydi: {option_method}")
+    else:
+        logging.warning(f"Ushbu usul qo'llab-quvvatlanmaydi: {option_method}")
+        print(f"Ushbu usul qo'llab-quvvatlanmaydi: {option_method}")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Office faylini boshqa formatga o'tkazish")
     parser.add_argument('option', type=str, help="Qaysi formatga o'tkazish (masalan, 'xls2pdf')")
