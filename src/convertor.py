@@ -56,7 +56,7 @@ def convert_document(option_method, input_file, output_file):
 
         if (from_ in ["xls", "xlsx"] and to_ in Format_dic["excel"]) or (from_ in ["doc", "docx"] and to_ in Format_dic["word"]) or (from_ in ["ppt", "pptx"] and to_ in Format_dic["powerPoint"]):
             try:
-                convert_document_to_any(input_file, output_file, to_)
+                convert_document_to_any(from_,input_file, output_file, to_)
                 logging.info(f"Fayl '{input_file}' {to_} formatiga o'tkazildi: '{output_file}'")
                 print(f"Fayl '{input_file}' {to_} formatiga o'tkazildi: '{output_file}'")
             except Exception as e:
@@ -91,7 +91,7 @@ def main():
 
         if (from_ in ["xls", "xlsx"] and to_ in Format_dic["excel"]) or (from_ in ["doc", "docx"] and to_ in Format_dic["word"]) or (from_ in ["ppt", "pptx"] and to_ in Format_dic["powerPoint"]):
             try:
-                convert_document_to_any(input_file, output_file, to_)
+                convert_document_to_any(from_,input_file, output_file, to_)
                 logging.info(f"Fayl '{input_file}' {to_} formatiga o'tkazildi: '{output_file}'")
                 print(f"Fayl '{input_file}' {to_} formatiga o'tkazildi: '{output_file}'")
             except Exception as e:
@@ -104,13 +104,13 @@ def main():
         logging.warning(f"Ushbu usul qo'llab-quvvatlanmaydi: {option_method}")
         print(f"Ushbu usul qo'llab-quvvatlanmaydi: {option_method}")
 
-def convert_document_to_any(input_path, output_path, target_format):
+def convert_document_to_any(from_,input_path, output_path, target_format):
     if system == "Windows":
-        if target_format in Format_dic["excel"]:
+        if target_format in Format_dic["excel"] and from_ in ["xls", "xlsx"]:
             convert_excel_to_any(input_path, output_path, target_format)
-        elif target_format in Format_dic["word"]:
+        elif target_format in Format_dic["word"] and from_ in ["doc", "docx"]:
             convert_word_to_any(input_path, output_path, target_format)
-        elif target_format in Format_dic["powerPoint"]:
+        elif target_format in Format_dic["powerPoint"] and from_ in ["ppt", "pptx"]:
             convert_presentation_to_any(input_path, output_path, target_format)
     elif system == "Linux":
         try:
