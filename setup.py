@@ -1,5 +1,13 @@
 from setuptools import setup, find_packages
 from setuptools.command.install import install
+from setuptools import setup, find_packages
+
+# README.md ni ochib, o'qib olish
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
+
+
 
 class PostInstallCommand(install):
     def run(self):
@@ -20,6 +28,8 @@ setup(
     author="Bobomalikov Abduaziz",
     author_email="Abduaziz7071@gmail.com",
     description="MS Office va LibreOffice uchun konvertatsiya vositasi",
+    long_description=long_description,  # To'liq tavsif
+    long_description_content_type="text/markdown",  # Fayl turini markdown deb belgilash
     packages=find_packages(),
     install_requires=[
         "pywin32; platform_system=='Windows'",
