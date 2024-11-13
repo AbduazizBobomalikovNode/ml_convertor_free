@@ -24,7 +24,7 @@ class PostInstallCommand(install):
 
 setup(
     name="ml_convertor_free",
-    version="0.1.13",
+    version="0.1.14",
     author="Bobomalikov Abduaziz",
     author_email="Abduaziz7071@gmail.com",
     description="MS Office va LibreOffice uchun konvertatsiya vositasi",

@@ -46,6 +46,10 @@ Format_dic_code = {
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s', filename="conversion_log.log")
 
 def convert_document(option_method, input_file, output_file):
+    option_method = option_method
+    input_file = get_full_path(input_file)
+    output_file = get_full_path(output_file)
+    
     if not os.path.exists(input_file):
         logging.error(f"Xato: '{input_file}' fayli topilmadi.")
         print(f"Xato: '{input_file}' fayli topilmadi.")
