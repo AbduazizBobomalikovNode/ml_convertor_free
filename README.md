@@ -8,6 +8,8 @@ ml_converter xls2pdf hisobot.xls hisobot.pdf
 
 ---
 
+**Sahifa:** [abduazizbobomalikovnode.github.io/ml_convertor_free/](https://abduazizbobomalikovnode.github.io/ml_convertor_free/)
+
 ## Muammo
 
 Faylni PDF qilish kerak bo'lganda odam odatda onlayn konvertorga yuklaydi. Qulay, lekin hujjat begona serverga chiqib ketadi. Shartnoma, moliyaviy hisobot yoki shaxsiy ma'lumot bo'lsa — bu yo'l umuman yaramaydi.
