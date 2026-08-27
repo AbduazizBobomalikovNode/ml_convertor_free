@@ -1,59 +1,78 @@
+# ML Convertor
 
-# Office fayl konvertori
+Office hujjatlarini boshqa formatga o'giradigan buyruq satri vositasi — hech qayerga yuklamasdan.
 
-Bu Python skripti ofis hujjatlarini (Excel, Word, PowerPoint) turli formatlarga o'zgartirish uchun kuchli yechim taqdim etadi. U PDF, HTML, XLSX, DOCX, PPTX va boshqa ko'plab formatlarni qo'llab-quvvatlaydi.
-
-## Xususiyatlar:
-- **Platformalararo qo'llab-quvvatlash**: Skript Windows va Linux tizimlarida ishlaydi.
-- **Ko'p formatlarni qo'llab-quvvatlash**: Excel, Word va PowerPoint formatlari o'rtasida hujjatlarni o'zgartirish mumkin (masalan, XLS dan PDF ga, DOCX dan PDF ga, PPT dan PPTX ga).
-- **Moslashtirilgan konvertatsiya usullari**: Skript LibreOffice (Linux uchun) va Microsoft Office (Windows uchun) kabi mashhur dasturlar yordamida turli hujjat formatlarini o'zgartirish imkonini beradi.
-- **Log yozuvi**: Muvaffaqiyatli konvertatsiyalar va xatoliklar uchun batafsil loglar saqlanadi.
-- **Buyruq satri interfeysi (CLI)**: Skriptni buyruq satridan faylni kiritish, natija faylini va kerakli formatni belgilash uchun oddiy argumentlar bilan ishlatish mumkin.
-
-## Qo'llab-quvvatlanadigan fayl formatlari:
-- **Excel**: PDF, HTML, XLS, XLSX, XLSB, CSV, ODS va boshqalar.
-- **Word**: PDF, DOC, DOCX, RTF, TXT, XML, ODT va boshqalar.
-- **PowerPoint**: PPTX, PPT, PPSX, PPS, ODP, XML, RTF, HTML va boshqalar.
-
-## O'rnatish:
-- **Linux uchun**: Konvertatsiya qilish uchun LibreOffice o'rnatilishi kerak.
-- **Windows uchun**: Microsoft Office (Excel, Word, PowerPoint) o'rnatilishi kerak.
-
-## Misol ishlatish:
 ```bash
-ml_converter xls2pdf input.xls output.pdf
+ml_converter xls2pdf hisobot.xls hisobot.pdf
 ```
-
-## Log yozuvi:
-Barcha operatsiyalar `conversion_log.log` faylida qayd etiladi va kuzatish uchun ishlatiladi.
 
 ---
 
-# Office File Converter
+## Muammo
 
-This Python script provides a powerful solution for converting office documents (Excel, Word, PowerPoint) into various formats. It supports a wide range of formats, including PDF, HTML, XLSX, DOCX, PPTX, and many others.
+Faylni PDF qilish kerak bo'lganda odam odatda onlayn konvertorga yuklaydi. Qulay, lekin hujjat begona serverga chiqib ketadi. Shartnoma, moliyaviy hisobot yoki shaxsiy ma'lumot bo'lsa — bu yo'l umuman yaramaydi.
 
-## Features:
-- **Cross-platform support**: Works on both Windows and Linux systems.
-- **Multiple format support**: Convert documents between Excel, Word, and PowerPoint formats (e.g., XLS to PDF, DOCX to PDF, PPT to PPTX).
-- **Customizable conversion methods**: The tool handles conversions for many document formats using well-known software such as LibreOffice (for Linux) and Microsoft Office (for Windows).
-- **Logging**: Detailed logs are maintained for successful conversions and error handling.
-- **Command-line interface (CLI)**: Can be used directly from the command line with simple arguments for input file, output file, and desired conversion format.
+Qo'lda ochib "Save as" qilish esa bitta fayl uchun ish, yuzta fayl uchun kun.
 
-## Supported File Formats:
-- **Excel**: PDF, HTML, XLS, XLSX, XLSB, CSV, ODS, and more.
-- **Word**: PDF, DOC, DOCX, RTF, TXT, XML, ODT, and more.
-- **PowerPoint**: PPTX, PPT, PPSX, PPS, ODP, XML, RTF, HTML, and more.
+## Nima qiladi
 
-## Installation:
-- **On Linux**: LibreOffice must be installed to handle conversions via the command line.
-- **On Windows**: Microsoft Office (Excel, Word, PowerPoint) is required for file conversions.
+- **Excel** → PDF, HTML, XLS, XLSX, XLSB, CSV, ODS va boshqalar
+- **Word** → PDF, DOC, DOCX, RTF, TXT, XML, ODT va boshqalar
+- **PowerPoint** → PPTX, PPT, PPSX, PPS, ODP, XML, RTF, HTML
+- **Hech qayerga yuklanmaydi** — hammasi sizning kompyuteringizda
+- **Log yozadi** — nima o'girildi, nima xato berdi
 
-## Example Usage:
+## Qanday ishlaydi
+
+Konvertatsiyani tizimda o'rnatilgan ofis dasturi bajaradi:
+
+| Tizim | Nimadan foydalanadi |
+|---|---|
+| Linux | LibreOffice (buyruq satri orqali) |
+| Windows | Microsoft Office (Excel, Word, PowerPoint) |
+
+Ya'ni natija sifati o'sha dasturning o'zi bergan sifat bilan bir xil — onlayn xizmatlardagi kabi formatlash buzilmaydi.
+
+Har amal `conversion_log.log` fayliga yoziladi: qaysi fayl, qaysi formatga, muvaffaqiyatli bo'ldimi.
+
+## O'rnatish
+
 ```bash
-ml_converter xls2pdf input.xls output.pdf
+git clone https://github.com/AbduazizBobomalikovNode/ml_convertor_free.git
+cd ml_convertor_free
+pip install .
 ```
 
-## Logging:
-All operations are logged into a `conversion_log.log` file for tracking and troubleshooting.
+Talab: Python 3, va tizimga qarab LibreOffice (Linux) yoki Microsoft Office (Windows).
 
+## Ishlatish
+
+```bash
+ml_converter <amal> <kiruvchi fayl> <chiquvchi fayl>
+```
+
+Misollar:
+
+```bash
+ml_converter xls2pdf  hisobot.xls    hisobot.pdf
+ml_converter docx2pdf shartnoma.docx shartnoma.pdf
+ml_converter ppt2pptx taqdimot.ppt   taqdimot.pptx
+```
+
+CLI bo'lgani uchun uni skriptga qo'shish yoki papkadagi barcha fayllarni sikl bilan o'girish mumkin:
+
+```bash
+for f in *.docx; do ml_converter docx2pdf "$f" "${f%.docx}.pdf"; done
+```
+
+## Tuzilma
+
+```
+src/         konvertatsiya mantiqi
+setup.py     paket sozlamalari
+docs/        landing sahifa
+```
+
+## Texnologiyalar
+
+Python · LibreOffice · Microsoft Office COM
