@@ -3,70 +3,134 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ML Convertor — Office hujjatlari konvertori</title>
-<meta name="description" content="Excel, Word va PowerPoint fayllarini boshqa formatlarga aylantiradi: PDF, HTML, XLSX, DOCX, PPTX va koʻplab boshqalar."/>
+<title>ML Convertor — Hujjat formatini buyruq bilan o'zgartiring</title>
+<meta name="description" content="Excel, Word va PowerPoint fayllarini PDF, HTML va o'nlab boshqa formatlarga aylantiradi. Windows'da Office, Linux'da LibreOffice orqali."/>
 <meta property="og:title" content="ML Convertor"/>
-<meta property="og:description" content="Excel, Word va PowerPoint fayllarini boshqa formatlarga aylantiradi: PDF, HTML, XLSX, DOCX, PPTX va koʻplab boshqalar."/>
-<meta property="og:type" content="website"/>
+<meta property="og:description" content="Excel, Word va PowerPoint fayllarini PDF, HTML va o'nlab boshqa formatlarga aylantiradi. Windows'da Office, Linux'da LibreOffice orqali."/>
 <style>
-  :root { --accent: #ef4444; --bg: #0b0d12; --ink: #e8e6e0; --ink2: #9aa1ad; --line: rgba(232,230,224,.12); }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--bg); color: var(--ink); min-height: 100vh;
-    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-    display: flex; flex-direction: column; align-items: center; padding: 6vh 20px 40px;
-    background-image: radial-gradient(900px 500px at 50% -10%, #ef44441f, transparent 70%);
-  }
-  main { width: 100%; max-width: 680px; }
-  .icon { font-size: 46px; line-height: 1; margin-bottom: 18px; }
-  h1 { font-size: clamp(30px, 6vw, 44px); letter-spacing: -.02em; font-weight: 700; }
-  .tagline { color: var(--accent); font-size: 15px; letter-spacing: .06em; text-transform: uppercase; margin: 10px 0 22px; font-weight: 600; }
-  .lede { font-size: clamp(16px, 2.4vw, 19px); color: #cfd3da; }
-  h2 { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink2); margin: 40px 0 14px; font-weight: 600; }
-  ul { list-style: none; }
-  li { padding: 11px 0 11px 26px; position: relative; border-bottom: 1px solid var(--line); color: #cfd3da; }
-  li::before { content: ""; position: absolute; left: 4px; top: 20px; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
-  .stack { display: flex; flex-wrap: wrap; gap: 8px; }
-  .stack span { border: 1px solid var(--line); border-radius: 999px; padding: 6px 13px; font-size: 13px; color: var(--ink2); }
-  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 38px; }
-  a.btn {
-    display: inline-flex; align-items: center; gap: 9px; text-decoration: none;
-    padding: 13px 22px; border-radius: 10px; font-weight: 600; font-size: 15px;
-    border: 1px solid var(--line); color: var(--ink); transition: border-color .18s, transform .18s;
-  }
-  a.btn:hover { border-color: var(--accent); transform: translateY(-1px); }
-  a.btn.primary { background: var(--accent); color: #0b0d12; border-color: var(--accent); }
-  footer { margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--ink2); font-size: 14px; }
-  footer a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
-  footer a:hover { border-color: var(--accent); }
-  @media (prefers-reduced-motion: reduce) { a.btn { transition: none; } }
+:root{
+  --bg:#07090f;--ink:#eef1f6;--ink2:#98a2b3;--ink3:#6b7480;
+  --accent:#ef4444;--accent2:#f87171;--warn:#f59e0b;
+  --line:rgba(238,241,246,.10);--card:rgba(255,255,255,.028);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:-30%;z-index:-2;
+  background:radial-gradient(48rem 32rem at 18% 8%,#ef444429,transparent 60%),
+             radial-gradient(42rem 30rem at 82% 22%,#f8717124,transparent 62%),
+             radial-gradient(38rem 28rem at 50% 92%,#ef444414,transparent 65%);
+  animation:drift 26s ease-in-out infinite alternate}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 30%,transparent 78%);
+  -webkit-mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 30%,transparent 78%);opacity:.55}
+@keyframes drift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-3%,2%,0) scale(1.08)}}
+.wrap{max-width:860px;margin:0 auto;padding:0 22px}
+section{padding:72px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  color:var(--accent);border:1px solid #ef444452;border-radius:999px;padding:6px 14px;background:#ef444412}
+h1{font-size:clamp(34px,6.4vw,60px);line-height:1.06;letter-spacing:-.03em;font-weight:800;margin:22px 0 0}
+h1 .grad{background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font-size:clamp(24px,3.6vw,34px);letter-spacing:-.02em;font-weight:700;margin-bottom:14px}
+h3{font-size:17px;font-weight:700;margin-bottom:6px}
+.lede{font-size:clamp(17px,2.3vw,21px);color:#c6ccd6;margin-top:20px;max-width:64ch}
+.muted{color:var(--ink2)}
+.small{font-size:14px;color:var(--ink3)}
+code{font:600 13.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(255,255,255,.06);padding:2px 6px;border-radius:5px}
+header{padding:14vh 0 20px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.hero-meta span{border:1px solid var(--line);border-radius:8px;padding:7px 12px;font-size:13px;color:var(--ink2);background:var(--card)}
+.problem{border-left:3px solid var(--warn);padding-left:22px;margin-top:8px}
+.problem p{color:#c6ccd6;max-width:62ch}
+.problem p+p{margin-top:14px}
+.quote{font-size:clamp(19px,2.8vw,25px);line-height:1.42;color:var(--ink);font-weight:600;letter-spacing:-.01em}
+.steps{counter-reset:s;margin-top:26px}
+.step{counter-increment:s;position:relative;padding:20px 0 20px 62px;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:0}
+.step::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:19px;
+  font:700 13px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent);
+  border:1px solid #ef444457;border-radius:8px;padding:8px 9px;background:#ef444412}
+.step p{color:var(--ink2);font-size:15px;margin-top:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:14px;margin-top:26px}
+.card{border:1px solid var(--line);border-radius:14px;padding:20px;background:var(--card);transition:border-color .2s,transform .2s,background .2s}
+.card:hover{border-color:#ef444466;transform:translateY(-2px);background:#ef44440d}
+.card .ic{font-size:20px;margin-bottom:12px;display:block}
+.card p{font-size:14.5px;color:var(--ink2)}
+.stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.stack span{border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:13.5px;color:var(--ink2);background:var(--card)}
+.cta{text-align:center;border-top:1px solid var(--line);margin-top:20px}
+.btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:26px}
+a.btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:650;font-size:15.5px;padding:14px 26px;border-radius:11px;border:1px solid var(--line);color:var(--ink);transition:border-color .2s,transform .2s}
+a.btn:hover{border-color:var(--accent);transform:translateY(-1px)}
+a.btn.primary{background:linear-gradient(100deg,var(--accent),var(--accent2));color:#07090f;border:0;font-weight:750}
+footer{padding:34px 0 60px;text-align:center;color:var(--ink3);font-size:14px}
+footer a{color:var(--ink2);text-decoration:none;border-bottom:1px solid var(--line)}
+footer a:hover{color:var(--ink);border-color:var(--accent)}
+.rise{opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.2,.7,.3,1) forwards}
+.d1{animation-delay:.06s}.d2{animation-delay:.13s}.d3{animation-delay:.2s}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rise{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<main>
-  <div class="icon">📄</div>
-  <h1>ML Convertor</h1>
-  <div class="tagline">Office hujjatlari konvertori</div>
-  <p class="lede">Excel, Word va PowerPoint fayllarini boshqa formatlarga aylantiradi: PDF, HTML, XLSX, DOCX, PPTX va koʻplab boshqalar.</p>
 
-  <h2>Nima qiladi</h2>
-  <ul>
-    <li>Excel, Word, PowerPoint fayllarini oʻqiydi</li>
-    <li>PDF, HTML va ofis formatlariga chiqaradi</li>
-    <li>Buyruqlar satridan ishlaydi</li>
-  </ul>
+<header class="wrap">
+  <div class="rise"><span class="eyebrow">Python · CLI · LibreOffice</span></div>
+  <h1 class="rise d1">Hujjat formatini<br/><span class="grad">buyruq bilan o'zgartiring</span></h1>
+  <p class="lede rise d2">Excel, Word va PowerPoint fayllarini PDF, HTML va o'nlab boshqa formatlarga aylantiradi. Windows'da Office, Linux'da LibreOffice orqali.</p>
+  <div class="hero-meta rise d3"><span>Windows va Linux</span><span>CLI</span><span>Log yozadi</span></div>
+</header>
 
-  <h2>Texnologiyalar</h2>
-  <div class="stack"><span>Python</span></div>
-
-  <div class="actions">
-    <a class="btn primary" href="https://github.com/AbduazizBobomalikovNode/ml_convertor_free">Kodni koʻrish →</a>
-    <a class="btn" href="https://4d-portfolio.vercel.app">Boshqa loyihalar</a>
+<section class="wrap">
+  <h2>Muammo</h2>
+  <div class="problem">
+    <p class="quote">"Bitta faylni PDF qilish uchun uni notanish saytga yuklaysiz."</p>
+    <p>Onlayn konvertorlar qulay, lekin hujjatingiz birovning serveriga chiqadi. Shartnoma, hisobot yoki shaxsiy ma'lumot bo'lsa — bu yo'l umuman yaramaydi.</p>
+    <p>Qo'lda ochib "Save as" qilish esa bitta fayl uchun ish, yuzta fayl uchun kun.</p>
   </div>
+</section>
 
-  <footer>
-    <b>Abduaziz Bobomalikov</b> — <a href="https://4d-portfolio.vercel.app">4D Portfolio</a> · <a href="https://t.me/Bobomalikov_Abduaziz">Telegram</a>
-  </footer>
-</main>
+<section class="wrap">
+  <h2>Qanday ishlaydi</h2>
+  <p class="muted">Bitta buyruq, hech qanday yuklash.</p>
+  <div class="steps">
+    <div class="step"><h3>Formatni tanlaysiz</h3><p><code>ml_converter xls2pdf input.xls output.pdf</code></p></div>
+    <div class="step"><h3>Skript o'girib beradi</h3><p>Linux'da LibreOffice, Windows'da o'rnatilgan Office ishlatiladi.</p></div>
+    <div class="step"><h3>Natija yoziladi</h3><p>Har konvertatsiya va xato <code>conversion_log.log</code> ga tushadi.</p></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>Nima beradi</h2>
+  <div class="grid">
+    <div class="card"><span class="ic">📊</span><h3>Excel</h3><p>PDF, HTML, XLS, XLSX, XLSB, CSV, ODS va boshqalar.</p></div>
+    <div class="card"><span class="ic">📝</span><h3>Word</h3><p>PDF, DOC, DOCX, RTF, TXT, XML, ODT va boshqalar.</p></div>
+    <div class="card"><span class="ic">📽</span><h3>PowerPoint</h3><p>PPTX, PPT, PPSX, PPS, ODP, XML, RTF, HTML.</p></div>
+    <div class="card"><span class="ic">🔒</span><h3>Hech qayerga yuklanmaydi</h3><p>Hammasi sizning kompyuteringizda bajariladi.</p></div>
+    <div class="card"><span class="ic">📋</span><h3>Log</h3><p>Nima o'girildi va nima xato berdi — hammasi yozilgan.</p></div>
+    <div class="card"><span class="ic">⌨️</span><h3>Skriptga qo'shiladi</h3><p>CLI bo'lgani uchun boshqa avtomatlashtirishga ulanadi.</p></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>Nimadan qurilgan</h2>
+  <div class="stack"><span>Python</span><span>LibreOffice</span><span>Microsoft Office</span><span>CLI</span></div>
+</section>
+
+<section class="wrap cta">
+  <h2>Ko'rib chiqing</h2>
+  <p class="muted">Kod ochiq, o'rnatish yo'riqnomasi README'da.</p>
+  <div class="btns">
+    <a class="btn primary" href="https://github.com/AbduazizBobomalikovNode/ml_convertor_free">GitHub'da ochish →</a>
+    <a class="btn" href="https://4d-portfolio.vercel.app">Boshqa loyihalarim</a>
+  </div>
+</section>
+
+<footer>
+  <b>Abduaziz Bobomalikov</b> · <a href="https://4d-portfolio.vercel.app">4D Portfolio</a> · <a href="https://t.me/Bobomalikov_Abduaziz">Telegram</a>
+</footer>
+
 </body>
 </html>
