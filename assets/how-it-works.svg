@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" role="img" aria-labelledby="ttl" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif">
+<title id="ttl">ml_convertor qanday ishlaydi: buyruq, mahalliy ofis dasturi, tayyor fayl va log — internetga chiqmasdan</title>
+<style>
+.t{fill:#e6edf3;font-size:14px;font-weight:600}
+.s{fill:#8b949e;font-size:11px}
+.n{fill:#58a6ff;font-size:11px;font-weight:700;letter-spacing:1px}
+.m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace}
+.box{fill:#161b22;stroke:#30363d;stroke-width:1.5}
+.wire{stroke:#30363d;stroke-width:2;fill:none;stroke-dasharray:3 6;animation:flow 1s linear infinite}
+.dot{fill:#58a6ff;opacity:0;filter:drop-shadow(0 0 5px #58a6ff)}
+.fb{transform-box:fill-box}
+.type{transform-origin:left;animation:type 12s infinite}
+.cur{animation:cur 12s infinite}
+.gear{transform-origin:center;animation:spin 3s linear infinite}
+.eng{animation:glow 12s infinite}
+.pdf{transform-origin:center;animation:pdf 12s infinite}
+.out{animation:show72 12s infinite}
+.l1{animation:show34 12s infinite}
+.l2{animation:show46 12s infinite}
+@keyframes flow{to{stroke-dashoffset:-9}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes type{0%,5%{transform:scaleX(0);animation-timing-function:steps(50,end)}30%,97%{transform:scaleX(1)}100%{transform:scaleX(0)}}
+@keyframes cur{0%,5%{transform:translateX(0);animation-timing-function:steps(50,end)}30%,97%{transform:translateX(424px)}100%{transform:translateX(0)}}
+@keyframes glow{0%,41%,64%,100%{stroke:#30363d;fill:#161b22}46%,60%{stroke:#58a6ff;fill:#111d2e}}
+@keyframes pdf{0%,69%{opacity:0;transform:scale(.6)}73%{opacity:1;transform:scale(1.08)}76%,97%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
+@keyframes show34{0%,33%{opacity:0}35%,97%{opacity:1}100%{opacity:0}}
+@keyframes show46{0%,45%{opacity:0}47%,97%{opacity:1}100%{opacity:0}}
+@keyframes show72{0%,72%{opacity:0}74%,97%{opacity:1}100%{opacity:0}}
+</style>
+
+<rect width="1000" height="440" rx="16" fill="#0d1117"/>
+<text x="30" y="38" class="t" font-size="17">ml_convertor qanday ishlaydi</text>
+
+<!-- no cloud -->
+<g transform="translate(790 18)">
+<path d="M14 26h26a9 9 0 0 0 1-18 13 13 0 0 0-25-2 10 10 0 0 0-2 20z" fill="none" stroke="#8b949e" stroke-width="1.8"/>
+<path d="M4 30L50 2" stroke="#f85149" stroke-width="2.5" stroke-linecap="round"/>
+<text class="s" x="60" y="20">onlayn server yo'q</text>
+</g>
+
+<!-- local machine boundary -->
+<rect x="20" y="56" width="960" height="364" rx="14" fill="none" stroke="#238636" stroke-width="1.5" stroke-dasharray="6 6"/>
+<text x="40" y="405" fill="#3fb950" font-size="11" font-weight="700" letter-spacing="1">SIZNING KOMPYUTERINGIZ · fayl hech qayerga yuklanmaydi</text>
+
+<!-- terminal -->
+<rect class="box" x="40" y="76" width="580" height="116" rx="10"/>
+<path d="M40 100H620" stroke="#30363d" stroke-width="1.5"/>
+<circle cx="56" cy="88" r="3.5" fill="#f85149"/><circle cx="68" cy="88" r="3.5" fill="#d29922"/><circle cx="80" cy="88" r="3.5" fill="#3fb950"/>
+<text class="n" x="512" y="92">1 · BUYRUQ</text>
+<text class="m" x="58" y="134" font-size="14" fill="#3fb950">$</text>
+<clipPath id="c"><rect class="fb type" x="78" y="118" width="424" height="24"/></clipPath>
+<text class="m" x="78" y="134" font-size="14" fill="#e6edf3" textLength="420" clip-path="url(#c)">ml_convertor docx2pdf shartnoma.docx shartnoma.pdf</text>
+<rect class="cur" x="79" y="121" width="8" height="17" fill="#e6edf3" opacity=".7"/>
+<text class="m out" x="58" y="168" font-size="12" fill="#3fb950">Fayl 'shartnoma.docx' pdf formatiga o'tkazildi</text>
+
+<!-- wires -->
+<path class="wire" d="M150 285H225"/>
+<path class="wire" d="M445 285H515"/>
+
+<!-- input file -->
+<g transform="translate(75 240)">
+<path class="box" d="M0 8a8 8 0 0 1 8-8h40l22 22v60a8 8 0 0 1-8 8H8a8 8 0 0 1-8-8z"/>
+<path d="M48 0v14a8 8 0 0 0 8 8h14" fill="none" stroke="#30363d" stroke-width="1.5"/>
+<rect x="-8" y="48" width="56" height="22" rx="5" fill="#2b7cd3"/>
+<text x="20" y="64" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">DOCX</text>
+<text class="s" x="35" y="110" text-anchor="middle">shartnoma.docx</text>
+</g>
+
+<!-- office engine -->
+<rect class="box eng" x="225" y="230" width="220" height="110" rx="12"/>
+<g transform="translate(270 285)">
+<circle class="fb gear" r="19" fill="none" stroke="#58a6ff" stroke-width="8" stroke-dasharray="7.46 7.46"/>
+<circle r="14" fill="none" stroke="#58a6ff" stroke-width="3"/>
+<circle r="5" fill="#58a6ff"/>
+</g>
+<text class="n" x="308" y="262">2 · O'GIRADI</text>
+<text class="t" x="308" y="282">Ofis dasturi</text>
+<text class="s" x="308" y="301">Linux · LibreOffice</text>
+<text class="s" x="308" y="317">Windows · MS Office</text>
+
+<!-- output file -->
+<g transform="translate(520 240)">
+<g class="fb pdf">
+<path class="box" d="M0 8a8 8 0 0 1 8-8h40l22 22v60a8 8 0 0 1-8 8H8a8 8 0 0 1-8-8z"/>
+<path d="M48 0v14a8 8 0 0 0 8 8h14" fill="none" stroke="#30363d" stroke-width="1.5"/>
+<rect x="-8" y="48" width="56" height="22" rx="5" fill="#e5484d"/>
+<text x="20" y="64" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">PDF</text>
+</g>
+<text class="s out" x="35" y="110" text-anchor="middle">shartnoma.pdf</text>
+</g>
+
+<!-- log -->
+<rect class="box" x="650" y="76" width="310" height="264" rx="10"/>
+<path d="M650 100H960" stroke="#30363d" stroke-width="1.5"/>
+<text class="m" x="664" y="93" font-size="11" fill="#8b949e">conversion_log.log</text>
+<text class="n" x="886" y="92">3 · LOG</text>
+<g class="m" font-size="10.5">
+<g class="l1"><text x="664" y="126" fill="#8b949e">DEBUG</text><text x="706" y="126" fill="#c9d1d9">Faylning to'liq yo'li: …</text></g>
+<g class="l2"><text x="664" y="148" fill="#8b949e">DEBUG</text><text x="706" y="148" fill="#c9d1d9">Word faylini pdf formatiga…</text></g>
+<g class="out"><text x="664" y="170" fill="#3fb950">INFO</text><text x="706" y="170" fill="#3fb950">pdf formatiga o'tkazildi</text></g>
+</g>
+<text class="s" x="664" y="322">har amal: vaqt · daraja · xabar</text>
+
+<!-- moving packets -->
+<circle r="5" class="dot"><animateMotion dur="12s" repeatCount="indefinite" calcMode="linear" path="M150 285H225" keyPoints="0;0;1;1" keyTimes="0;.33;.42;1"/><animate attributeName="opacity" dur="12s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;.33;.34;.41;.42;1"/></circle>
+<circle r="5" class="dot"><animateMotion dur="12s" repeatCount="indefinite" calcMode="linear" path="M445 285H515" keyPoints="0;0;1;1" keyTimes="0;.62;.70;1"/><animate attributeName="opacity" dur="12s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;.62;.63;.69;.70;1"/></circle>
+</svg>
