@@ -3,7 +3,7 @@
 Office hujjatlarini boshqa formatga o'giradigan buyruq satri vositasi — hech qayerga yuklamasdan.
 
 ```bash
-ml_converter xls2pdf hisobot.xls hisobot.pdf
+ml_convertor xls2pdf hisobot.xls hisobot.pdf
 ```
 
 ---
@@ -25,6 +25,10 @@ Qo'lda ochib "Save as" qilish esa bitta fayl uchun ish, yuzta fayl uchun kun.
 - **Log yozadi** — nima o'girildi, nima xato berdi
 
 ## Qanday ishlaydi
+
+<p align="center">
+  <img src="assets/how-it-works.svg" alt="ml_convertor qanday ishlaydi: buyruq → mahalliy ofis dasturi → tayyor fayl va log, internetga chiqmasdan" width="100%">
+</p>
 
 Konvertatsiyani tizimda o'rnatilgan ofis dasturi bajaradi:
 
@@ -50,27 +54,32 @@ Talab: Python 3, va tizimga qarab LibreOffice (Linux) yoki Microsoft Office (Win
 ## Ishlatish
 
 ```bash
-ml_converter <amal> <kiruvchi fayl> <chiquvchi fayl>
+ml_convertor <amal> <kiruvchi fayl> <chiquvchi fayl>
 ```
+
+Amal nomi `<qaysidan>2<qaysiga>` ko'rinishida yoziladi. Kiruvchi formatlar: `xls`, `xlsx`, `doc`, `docx`, `ppt`, `pptx`.
 
 Misollar:
 
 ```bash
-ml_converter xls2pdf  hisobot.xls    hisobot.pdf
-ml_converter docx2pdf shartnoma.docx shartnoma.pdf
-ml_converter ppt2pptx taqdimot.ppt   taqdimot.pptx
+ml_convertor xls2pdf  hisobot.xls    hisobot.pdf
+ml_convertor docx2pdf shartnoma.docx shartnoma.pdf
+ml_convertor ppt2pptx taqdimot.ppt   taqdimot.pptx
 ```
 
 CLI bo'lgani uchun uni skriptga qo'shish yoki papkadagi barcha fayllarni sikl bilan o'girish mumkin:
 
 ```bash
-for f in *.docx; do ml_converter docx2pdf "$f" "${f%.docx}.pdf"; done
+for f in *.docx; do ml_convertor docx2pdf "$f" "${f%.docx}.pdf"; done
 ```
 
 ## Tuzilma
 
 ```
-src/         konvertatsiya mantiqi
+src/
+  main.py       buyruq satri (ml_convertor)
+  convertor.py  konvertatsiya mantiqi va log
+  checker.py    ofis dasturi o'rnatilganini tekshiradi
 setup.py     paket sozlamalari
 docs/        landing sahifa
 ```
